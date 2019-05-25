@@ -24,3 +24,13 @@
  2019-05-25 20:49:54,762 [P9664/D11/T108] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [ScheduledTasks] Tasks completed, terminated
  2019-05-25 20:49:54,762 [P9664/D11/T96] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [KeepAlive] Tasks completed, terminated
  2019-05-25 20:49:54,762 [P9664/D11/T12] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [LogScrubber] Tasks completed, terminated
+ 2019-05-25 20:50:24,848 [P9664/D11/T108] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: HostingEnvironment
+
+_shutDownMessage=HostingEnvironment initiated shutdown
+HostingEnvironment heeft afsluiten veroorzaakt
+
+_shutDownStack=   bij System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   bij System.Environment.get_StackTrace()
+   bij System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   bij System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   bij System.Web.Hosting.PipelineRuntime.StopProcessing()
