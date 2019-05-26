@@ -5,7 +5,10 @@
 <div id="fh5co-blog-section">
 		<div class="container">
             @{ Html.RenderAction("RenderTitleControls", "SiteLayout");}
-			<div class="row">
+            @{ Html.RenderAction("RenderPostList", "Blog");}
+            
+
+            @*<div class="row">
 				<div class="col-md-4 text-center">
 					<div class="blog-inner">
 						<a href="#"><img class="img-responsive" src="/images/image_4.jpg" alt="Blog"></a>
@@ -72,6 +75,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>*@
 		</div>
 	</div>
