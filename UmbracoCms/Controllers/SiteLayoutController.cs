@@ -38,8 +38,8 @@ namespace UmbracoCms.Controllers
 
         public ActionResult RenderHeader()
         {
-            MemoryCache.Default.Remove("mainNav");
-            List<NavigationListItem> nav = GetObjectFromCache<List<NavigationListItem>>("mainNav", 5, GetNavigationModelFromDatabase);
+            //MemoryCache.Default.Remove("mainNav");
+            List<NavigationListItem> nav = GetObjectFromCache<List<NavigationListItem>>("mainNav", 0, GetNavigationModelFromDatabase);
             //List < NavigationListItem > nav = GetNavigationModelFromDatabase();
             return PartialView($"{PARTIAL_VIEW_FOLDER}_Header.cshtml", nav);
         }
@@ -61,7 +61,8 @@ namespace UmbracoCms.Controllers
             //IPublishedContent homePage = Umbraco.Content(homePageId);
             const string HOME_PAGE_DOC_TYPE_ALIAS = "home";
 
-            IPublishedContent homePage = CurrentPage.AncestorOrSelf(1).DescendantsOrSelf().Where(x => x.DocumentTypeAlias.Equals(HOME_PAGE_DOC_TYPE_ALIAS, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            //IPublishedContent homePage = CurrentPage.AncestorOrSelf(1).DescendantsOrSelf().Where(x => x.DocumentTypeAlias.Equals(HOME_PAGE_DOC_TYPE_ALIAS, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            IPublishedContent homePage = CurrentPage.AncestorOrSelf(HOME_PAGE_DOC_TYPE_ALIAS);
 
             List<NavigationListItem> nav = new List<NavigationListItem>();
             nav.Add(new NavigationListItem(new NavigationLink(homePage.Url, homePage.Name)));

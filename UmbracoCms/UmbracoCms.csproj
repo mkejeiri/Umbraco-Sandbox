@@ -2825,7 +2825,7 @@
     <Content Include="Views\Partials\Home\_Intro.cshtml" />
     <Content Include="Views\Partials\Home\_Services.cshtml" />
     <Content Include="Views\Partials\Home\_Blog.cshtml" />
-    <Content Include="Views\Partials\Home\_Client.cshtml" />
+    <Content Include="Views\Partials\Home\_Testimonials.cshtml" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.eot" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.ttf" />
     <Content Include="Umbraco\assets\fonts\helveticons\helveticons.woff" />
@@ -2961,6 +2961,9 @@
     </Compile>
     <Compile Include="Models\BlogPreview.cs" />
     <Compile Include="Models\FeaturedItem.cs" />
+    <Compile Include="Models\TestimonialModel.cs" />
+    <Compile Include="Models\TestimonialsModel.cs" />
+    <Compile Include="Models\LatestBlogPost.cs" />
     <Compile Include="Models\NavigationLink.cs" />
     <Compile Include="Models\NavigationListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

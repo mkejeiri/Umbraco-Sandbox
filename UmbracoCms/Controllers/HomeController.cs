@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Umbraco.Core.Models;
@@ -13,17 +12,24 @@ namespace UmbracoCms.Controllers
 
     public class HomeController : SurfaceController
     {
-        private const string PARTIAL_VIEW_FOLDER = "~/Views/Partials/Home/";
+        //private const string PARTIAL_VIEW_FOLDER = "~/Views/Partials/Home/";
+
+        private string PartialViewPath(string name)
+        {
+            return $"~/Views/Partials/Home/{name}.cshtml";
+        }
+        private const int MAX_TESTIMONIAL = 4;
 
         public ActionResult RenderIntro()
         {
-            return PartialView($"{PARTIAL_VIEW_FOLDER}_Intro.cshtml");
+            return PartialView(PartialViewPath("_Intro"));
         }
         public ActionResult RenderFeatured()
         {
             const string HOME_PAGE_DOC_TYPE_ALIAS = "home";
 
-            IPublishedContent homePage = CurrentPage.AncestorOrSelf(1).DescendantsOrSelf().Where(x => x.DocumentTypeAlias.Equals(HOME_PAGE_DOC_TYPE_ALIAS, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            //IPublishedContent homePage = CurrentPage.AncestorOrSelf(1).DescendantsOrSelf().Where(x => x.DocumentTypeAlias.Equals(HOME_PAGE_DOC_TYPE_ALIAS, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            IPublishedContent homePage = CurrentPage.AncestorOrSelf(HOME_PAGE_DOC_TYPE_ALIAS);
             List<FeaturedItem> model = new List<FeaturedItem>();
 
             ArchetypeModel featuredItems = homePage.GetPropertyValue<ArchetypeModel>("featuredItems");
@@ -42,22 +48,54 @@ namespace UmbracoCms.Controllers
                 string linkUrl = linkedToPage.Url;
                 model.Add(new FeaturedItem() { Name = name, Category = category, ImageUrl = imageUrl, LinkUrl = linkUrl });
             }
-            return PartialView($"{PARTIAL_VIEW_FOLDER}_Featured.cshtml", model);
+            return PartialView(PartialViewPath("_Featured"), model);
         }
 
         public ActionResult RenderServices()
         {
-            return PartialView($"{PARTIAL_VIEW_FOLDER}_Services.cshtml");
+            return PartialView(PartialViewPath("_Services"));
         }
 
         public ActionResult RenderBlog()
         {
-            return PartialView($"{PARTIAL_VIEW_FOLDER}_Blog.cshtml");
+            const string HOME_PAGE_DOC_TYPE_ALIAS = "home";
+            IPublishedContent page = CurrentPage.AncestorOrSelf(HOME_PAGE_DOC_TYPE_ALIAS);
+            LatestBlogPost model = new LatestBlogPost()
+            {
+                Title = page.GetPropertyValue<string>("latestBlogPostsTitle"),
+                Introduction = page.GetPropertyValue<string>("latestBlogPostsIntroduction")
+            };
+
+            return PartialView(PartialViewPath("_Blog"), model);
         }
 
-        public ActionResult RenderClient()
+        public ActionResult RenderTestimonials()
         {
-            return PartialView($"{PARTIAL_VIEW_FOLDER}_Client.cshtml");
+            const string HOME_PAGE_DOC_TYPE_ALIAS = "home";
+            IPublishedContent page = CurrentPage.AncestorOrSelf(HOME_PAGE_DOC_TYPE_ALIAS);
+            ArchetypeModel testimonialList = page.GetPropertyValue<ArchetypeModel>("testimonialList");
+
+            List<TestimonialModel> testimonials = new List<TestimonialModel>();
+            if (testimonials != null || testimonials.Count > 0)
+            {
+                foreach (ArchetypeFieldsetModel fieldSet in testimonialList.Take(MAX_TESTIMONIAL))
+                {
+                    testimonials.Add(new TestimonialModel()
+                    {
+                        Name = fieldSet.GetValue<string>("name"),
+                        Quote = fieldSet.GetValue<string>("quote")
+                    });
+                }
+            }
+
+
+            TestimonialsModel model = new TestimonialsModel()
+            {
+                Title = page.GetPropertyValue<string>("testimonialsTitle"),
+                Introduction = page.GetPropertyValue<string>("testimonialsIntroduction"),
+                Testimonials = testimonials
+            };
+            return PartialView(PartialViewPath("_Testimonials"), model);
         }
     }
 }
