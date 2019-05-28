@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoCms", "UmbracoCms\UmbracoCms.csproj", "{F87CAFC0-9835-407B-BC51-4BEF467D9739}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoCmsLibrary", "UmbracoCmsLibrary\UmbracoCmsLibrary.csproj", "{86D65B26-9C08-4AC4-AAA5-2DC05990D3D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F87CAFC0-9835-407B-BC51-4BEF467D9739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F87CAFC0-9835-407B-BC51-4BEF467D9739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F87CAFC0-9835-407B-BC51-4BEF467D9739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86D65B26-9C08-4AC4-AAA5-2DC05990D3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D65B26-9C08-4AC4-AAA5-2DC05990D3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D65B26-9C08-4AC4-AAA5-2DC05990D3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D65B26-9C08-4AC4-AAA5-2DC05990D3D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

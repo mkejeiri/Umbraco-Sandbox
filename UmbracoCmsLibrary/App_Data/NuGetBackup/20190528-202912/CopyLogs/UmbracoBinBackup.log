@@ -1,0 +1,28 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, May 28, 2019 8:29:12 PM
+   Source : C:\UmbracoCms\UmbracoCmsLibrary\bin\
+     Dest : C:\UmbracoCms\UmbracoCmsLibrary\App_Data\NuGetBackup\20190528-202912\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	C:\UmbracoCms\UmbracoCmsLibrary\bin\
+	  New Dir          0	C:\UmbracoCms\UmbracoCmsLibrary\bin\Debug\
+	  New Dir          0	C:\UmbracoCms\UmbracoCmsLibrary\bin\Release\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         2         1         0         0         0
+   Files :         0         0         0         0         0         0
+   Bytes :         0         0         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, May 28, 2019 8:29:12 PM
+

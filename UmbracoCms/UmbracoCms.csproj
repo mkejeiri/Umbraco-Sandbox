@@ -314,6 +314,8 @@
     <Content Include="config\Lang\ru-RU.user.xml" />
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
+    <Content Include="config\splashes\booting.aspx" />
+    <Content Include="config\splashes\noNodes.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -324,6 +326,7 @@
     <Content Include="css\icomoon.css" />
     <Content Include="css\simple-line-icons.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\StylesDropDown.css" />
     <Content Include="default.aspx" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\bootstrap\index.html" />
@@ -345,6 +348,28 @@
     <Content Include="images\image_about.jpg" />
     <Content Include="images\loader.gif" />
     <Content Include="images\loc.png" />
+    <Content Include="Media\1001\car.jpg" />
+    <Content Include="Media\1001\car_big-thumb.jpg" />
+    <Content Include="Media\1001\car_thumb.jpg" />
+    <Content Include="Media\1002\image_6-1.jpg" />
+    <Content Include="Media\1002\image_6-1_big-thumb.jpg" />
+    <Content Include="Media\1002\image_6-1_thumb.jpg" />
+    <Content Include="Media\1003\image_2-1.jpg" />
+    <Content Include="Media\1003\image_2-1_big-thumb.jpg" />
+    <Content Include="Media\1003\image_2-1_thumb.jpg" />
+    <Content Include="Media\1004\image_3-1.jpg" />
+    <Content Include="Media\1004\image_3-1_big-thumb.jpg" />
+    <Content Include="Media\1004\image_3-1_thumb.jpg" />
+    <Content Include="Media\1005\image_8-1.jpg" />
+    <Content Include="Media\1005\image_8-1_big-thumb.jpg" />
+    <Content Include="Media\1005\image_8-1_thumb.jpg" />
+    <Content Include="Media\1006\image_4-1.jpg" />
+    <Content Include="Media\1006\image_4-1_big-thumb.jpg" />
+    <Content Include="Media\1006\image_4-1_thumb.jpg" />
+    <Content Include="Media\1007\image_5-1.jpg" />
+    <Content Include="Media\1007\image_5-1_big-thumb.jpg" />
+    <Content Include="Media\1007\image_5-1_thumb.jpg" />
+    <Content Include="Media\Web.config" />
     <Content Include="sass\bootstrap\index.html" />
     <Content Include="sass\bootstrap\mixins\index.html" />
     <Content Include="sass\index.html" />
@@ -2955,15 +2980,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SiteLayoutController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SearchHelper.cs" />
     <Compile Include="Models\BlogPreview.cs" />
-    <Compile Include="Models\FeaturedItem.cs" />
+    <Compile Include="Models\MetaDataModel.cs" />
+    <Compile Include="Models\PagingBoundsModel.cs" />
+    <Compile Include="Models\SearchGroup.cs" />
+    <Compile Include="Models\SearchResultsModel.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\TestimonialModel.cs" />
     <Compile Include="Models\TestimonialsModel.cs" />
-    <Compile Include="Models\LatestBlogPost.cs" />
     <Compile Include="Models\NavigationLink.cs" />
     <Compile Include="Models\NavigationListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2974,7 +3004,6 @@
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
-    <Content Include="Media\Web.config" />
     <Content Include="config\UrlRewriting.config" />
     <Content Include="config\umbracoSettings.config" />
     <Content Include="config\trees.config" />
@@ -3111,6 +3140,9 @@
     <Content Include="Views\Partials\SiteLayout\_TitleControls.cshtml" />
     <Content Include="Views\BlogPost.cshtml" />
     <Content Include="Views\Partials\Blog\_PostList.cshtml" />
+    <Content Include="Views\Partials\Search\_SearchForm.cshtml" />
+    <Content Include="Views\Partials\Search\_SearchResults.cshtml" />
+    <Content Include="Views\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3126,6 +3158,12 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmbracoCmsLibrary\UmbracoCmsLibrary.csproj">
+      <Project>{86d65b26-9c08-4ac4-aaa5-2dc05990d3d7}</Project>
+      <Name>UmbracoCmsLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
